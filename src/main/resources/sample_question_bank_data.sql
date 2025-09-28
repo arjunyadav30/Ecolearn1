@@ -1,0 +1,28 @@
+-- Sample data for question_bank table
+
+INSERT INTO question_bank (category, question_text, option_a, option_b, option_c, option_d, correct_option, difficulty_level) VALUES
+('Mathematics', 'What is the value of π (pi) approximately?', '3.14', '2.71', '1.61', '4.67', 'a', 'easy'),
+('Mathematics', 'What is the derivative of x^2?', '2x', 'x^2', 'x', '2x^2', 'a', 'medium'),
+('Mathematics', 'What is the integral of 2x dx?', 'x^2 + C', '2x^2 + C', 'x + C', '2x + C', 'a', 'medium'),
+('Science', 'What is the chemical symbol for water?', 'H2O', 'CO2', 'NaCl', 'O2', 'a', 'easy'),
+('Science', 'What is the speed of light in vacuum?', '3 x 10^8 m/s', '3 x 10^6 m/s', '3 x 10^10 m/s', '3 x 10^5 m/s', 'a', 'hard'),
+('Science', 'What is the powerhouse of the cell?', 'Nucleus', 'Mitochondria', 'Ribosome', 'Endoplasmic reticulum', 'b', 'easy'),
+('History', 'In which year did World War II end?', '1945', '1939', '1950', '1947', 'a', 'easy'),
+('History', 'Who was the first President of the United States?', 'Thomas Jefferson', 'George Washington', 'Abraham Lincoln', 'John Adams', 'b', 'easy'),
+('Geography', 'What is the capital of France?', 'London', 'Berlin', 'Paris', 'Rome', 'c', 'easy'),
+('Geography', 'Which is the longest river in the world?', 'Amazon River', 'Nile River', 'Mississippi River', 'Yangtze River', 'b', 'medium'),
+('Literature', 'Who wrote "Romeo and Juliet"?', 'Charles Dickens', 'William Shakespeare', 'Mark Twain', 'Jane Austen', 'b', 'easy'),
+('Literature', 'What is the pen name of Samuel Clemens?', 'Mark Twain', 'George Eliot', 'Lewis Carroll', 'Oscar Wilde', 'a', 'medium'),
+('Computer Science', 'What does CPU stand for?', 'Central Processing Unit', 'Computer Processing Unit', 'Central Processor Unit', 'Computer Processor Unit', 'a', 'easy'),
+('Computer Science', 'Which programming language is known as the "language of the web"?', 'Python', 'Java', 'JavaScript', 'C++', 'c', 'easy'),
+('Computer Science', 'What is the time complexity of binary search?', 'O(n)', 'O(log n)', 'O(n^2)', 'O(1)', 'b', 'hard'),
+('Physics', 'What is the unit of force in SI system?', 'Joule', 'Watt', 'Newton', 'Pascal', 'c', 'easy'),
+('Physics', 'What is the formula for kinetic energy?', 'KE = mv', 'KE = mv^2', 'KE = (1/2)mv^2', 'KE = (1/2)mv', 'c', 'medium'),
+('Chemistry', 'What is the pH of pure water?', '0', '7', '14', '10', 'b', 'easy'),
+('Chemistry', 'Which element has the chemical symbol "Au"?', 'Silver', 'Aluminum', 'Gold', 'Argon', 'c', 'medium'),
+('Biology', 'How many bones are there in an adult human body?', '206', '300', '150', '250', 'a', 'medium'),
+('Biology', 'What is the largest organ in the human body?', 'Liver', 'Brain', 'Skin', 'Heart', 'c', 'easy'),
+('Economics', 'What does GDP stand for?', 'Gross Domestic Product', 'Gross Domestic Profit', 'Global Domestic Product', 'General Domestic Product', 'a', 'easy'),
+('Economics', 'What is inflation?', 'Decrease in price level', 'Increase in price level', 'Stable price level', 'Fluctuating price level', 'b', 'easy'),
+('Art', 'Who painted the Mona Lisa?', 'Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Michelangelo', 'c', 'easy'),
+('Music', 'How many notes are there in a musical scale?', '7', '8', '12', '5', 'a', 'easy');
