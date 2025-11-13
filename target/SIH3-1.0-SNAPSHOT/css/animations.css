@@ -1,0 +1,415 @@
+/* Advanced Animations for EcoLearn Platform */
+
+/* Pulse Animation for Buttons */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+    }
+}
+
+.btn-primary {
+    animation: pulse 2s infinite;
+}
+
+/* Text Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-text {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-bg {
+    background: linear-gradient(270deg, #2ecc71, #3498db, #9b59b6);
+    background-size: 600% 600%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Sparkle Effect */
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle 2s linear infinite;
+}
+
+/* Wave Animation */
+@keyframes wave {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(10px) translateY(-10px);
+    }
+    50% {
+        transform: translateX(-10px) translateY(5px);
+    }
+    75% {
+        transform: translateX(5px) translateY(-5px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(46, 204, 113, 0.8), 0 0 30px rgba(46, 204, 113, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+    }
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Slide In Animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Flip Card Animation */
+@keyframes flipCard {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+.flip-card {
+    animation: flipCard 0.6s ease-in-out;
+}
+
+/* Growing Tree Animation */
+@keyframes growTree {
+    0% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+.tree-grow {
+    animation: growTree 2s ease-out;
+}
+
+/* Water Drop Animation */
+@keyframes waterDrop {
+    0% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(10px) scale(0.9);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.water-drop {
+    animation: waterDrop 1s ease-out;
+}
+
+/* Carbon Particle Animation */
+@keyframes carbonFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) scale(0.8);
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px) scale(0.6);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-60px) translateX(5px) scale(0.4);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-80px) translateX(0) scale(0.2);
+        opacity: 0;
+    }
+}
+
+.carbon-particle {
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    animation: carbonFloat 3s ease-out infinite;
+}
+
+/* Eco Badge Shine */
+@keyframes badgeShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.badge-shine {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: badgeShine 3s infinite;
+}
+
+/* Plant Growth Stages */
+@keyframes plantStages {
+    0% {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238B4513"><circle cx="12" cy="20" r="2"/></svg>');
+    }
+    33% {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2327ae60"><path d="M12,2 L12,20 M10,8 L14,8"/></svg>');
+    }
+    66% {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2327ae60"><path d="M12,2 L12,20 M8,6 L16,6 M10,10 L14,10"/></svg>');
+    }
+    100% {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2327ae60"><path d="M12,2 C8,2 6,6 6,10 C6,14 12,22 12,22 C12,22 18,14 18,10 C18,6 16,2 12,2"/></svg>');
+    }
+}
+
+.plant-growth {
+    width: 50px;
+    height: 50px;
+    animation: plantStages 4s steps(4) infinite;
+}
+
+/* Sun Rays Animation */
+@keyframes sunRays {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+.sun-rays {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,223,0,0.8) 0%, transparent 70%);
+    animation: sunRays 20s linear infinite;
+}
+
+.sun-rays::before,
+.sun-rays::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,223,0,0.6), transparent);
+    transform-origin: left center;
+}
+
+.sun-rays::before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.sun-rays::after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+/* Recycle Symbol Rotation */
+@keyframes recycleRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.recycle-icon {
+    animation: recycleRotate 3s linear infinite;
+}
+
+/* Wind Effect */
+@keyframes wind {
+    0%, 100% {
+        transform: translateX(0) skewX(0deg);
+    }
+    25% {
+        transform: translateX(20px) skewX(-5deg);
+    }
+    75% {
+        transform: translateX(-20px) skewX(5deg);
+    }
+}
+
+.wind-effect {
+    animation: wind 4s ease-in-out infinite;
+}
+
+/* Score Counter Animation */
+@keyframes scoreCount {
+    0% {
+        transform: scale(1);
+        color: var(--primary-green);
+    }
+    50% {
+        transform: scale(1.5);
+        color: var(--sunshine-yellow);
+    }
+    100% {
+        transform: scale(1);
+        color: var(--primary-green);
+    }
+}
+
+.score-animation {
+    animation: scoreCount 0.5s ease-out;
+}
+
+/* Success Checkmark */
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.checkmark-circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: checkmark 0.6s ease-out forwards;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(46, 204, 113, 0.1);
+    border-top: 5px solid var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}

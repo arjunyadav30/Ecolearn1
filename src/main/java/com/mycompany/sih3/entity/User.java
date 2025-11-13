@@ -1,0 +1,168 @@
+package com.mycompany.sih3.entity;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "users")
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+})
+public class User implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    
+    @Column(name = "full_name", nullable = false, length = 100)
+    private String fullName;
+    
+    @Column(name = "username", nullable = false, unique = true, length = 50)
+    private String username;
+    
+    @Column(name = "email", nullable = false, unique = true, length = 100)
+    private String email;
+    
+    @Column(name = "password", nullable = false, length = 255)
+    private String password;
+    
+    @Column(name = "user_type", nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
+    
+    @Column(name = "school_id")
+    private Integer schoolId;
+    
+    @Column(name = "age")
+    private Integer age;
+    
+    @Column(name = "class_grade", length = 50)
+    private String classGrade;
+    
+    @Column(name = "avatar", length = 255)
+    private String avatar;
+    
+    @Column(name = "registration_date")
+    private LocalDateTime registrationDate;
+    
+    public User() {
+        this.userType = UserType.Student;
+        this.registrationDate = LocalDateTime.now();
+    }
+    
+    // Getters and Setters
+    public Integer getId() {
+        return id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
+    public String getFullName() {
+        return fullName;
+    }
+    
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public UserType getUserType() {
+        return userType;
+    }
+    
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+    
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+    
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+    
+    public Integer getAge() {
+        return age;
+    }
+    
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+    
+    public String getClassGrade() {
+        return classGrade;
+    }
+    
+    public void setClassGrade(String classGrade) {
+        this.classGrade = classGrade;
+    }
+    
+    public String getAvatar() {
+        return avatar;
+    }
+    
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+    
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+    
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    }
+    
+    @Override
+    public String toString() {
+        return "com.mycompany.sih3.entity.User[ id=" + id + ", username=" + username + " ]";
+    }
+}

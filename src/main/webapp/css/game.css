@@ -1,0 +1,187 @@
+/* Eco Game Styles */
+
+#eco-game-container {
+    font-family: 'Poppins', sans-serif;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: none;
+}
+
+#eco-game-container .game-content-wrapper {
+    text-align: center;
+}
+
+.eco-game-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.eco-game-description {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.game-stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.stat-box {
+    background: #ecf0f1;
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.stat-label {
+    color: #7f8c8d;
+}
+
+.game-item-container {
+    text-align: center;
+    margin: 2rem 0;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.bins-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    align-items: stretch;
+}
+
+.bin {
+    background: #3498db;
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.bin:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.bin-icon {
+    font-size: 2rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bin-name {
+    color: white;
+    font-weight: 500;
+}
+
+.game-controls {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.start-button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.game-result {
+    text-align: center;
+    margin: 1rem 0;
+    min-height: 50px;
+}
+
+.result-message {
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+
+.correct {
+    background: #27ae60;
+}
+
+.incorrect {
+    background: #e74c3c;
+}
+
+.game-over {
+    background: #3498db;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.game-over h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.final-score {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.score-message {
+    font-size: 1.1rem;
+}
