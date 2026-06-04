@@ -14,16 +14,8 @@ public class LessonRepository {
     }
     
     private Connection getConnection() throws SQLException {
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // Updated to use the correct database name based on the test page
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecolearn?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "1234");
-            // Ensure auto-commit is enabled
-            con.setAutoCommit(true);
-        } catch (Exception e) {
-            throw new SQLException("Failed to establish database connection: " + e.getMessage(), e);
-        }
+        Connection con = com.mycompany.sih3.util.DBUtil.getConnection();
+        if (con != null) con.setAutoCommit(true);
         return con;
     }
     

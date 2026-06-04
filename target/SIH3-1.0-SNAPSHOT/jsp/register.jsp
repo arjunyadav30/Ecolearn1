@@ -5,7 +5,7 @@
 <%@ page import="java.util.Map" %>
 <%
     // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
+    // Use centralized DB connection
     String usernameDB = "root";
     String passwordDB = "1234";
     
@@ -20,9 +20,8 @@
     PreparedStatement stmt1 = null, stmt2 = null, stmt3 = null, stmt4 = null;
     ResultSet rs1 = null, rs2 = null, rs3 = null, rs4 = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        try {
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Count total students
         stmt1 = con.prepareStatement("SELECT COUNT(*) as studentCount FROM users WHERE user_type = 'Student'");

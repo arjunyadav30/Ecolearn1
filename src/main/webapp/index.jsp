@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%
-    // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
-    String usernameDB = "root";
-    String passwordDB = "1234";
+    // Use centralized DBUtil (configured via web.xml)
     
     int totalStudents = 0;
     int totalSchools = 0;
@@ -15,8 +12,7 @@
     ResultSet rs1 = null, rs2 = null, rs3 = null;
     
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Count total students
         stmt1 = con.prepareStatement("SELECT COUNT(*) as studentCount FROM users WHERE user_type = 'Student'");

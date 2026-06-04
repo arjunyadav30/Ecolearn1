@@ -5,7 +5,7 @@
 <%@ page import="java.util.Map" %>
 <%
     // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
+    // Use centralized DB connection
     String usernameDB = "root";
     String passwordDB = "1234";
     
@@ -16,9 +16,8 @@
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        try {
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Fetch recent activity (last 5 activities)
         String activitySql = "SELECT activity_type, title, description, points_earned, created_at " +

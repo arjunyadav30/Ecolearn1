@@ -32,16 +32,21 @@
     <!-- Database connection parameters -->
     <context-param>
         <param-name>dbURL</param-name>
-        <param-value>jdbc:mysql://localhost:3306/ecolearn</param-value>
+        <param-value>jdbc:postgresql://db.djlhfcrtawnulkindacw.supabase.co:5432/postgres?sslmode=require</param-value>
     </context-param>
     
     <context-param>
         <param-name>dbUser</param-name>
-        <param-value>root</param-value>
+        <param-value>postgres</param-value>
     </context-param>
     
     <context-param>
         <param-name>dbPassword</param-name>
-        <param-value>1234</param-value>
+        <param-value>gBw35Qyvx$+#xXa</param-value>
     </context-param>
+
+    <!-- DB config listener to initialize DBUtil -->
+    <listener>
+        <listener-class>com.mycompany.sih3.util.DBConfigListener</listener-class>
+    </listener>
 </web-app>

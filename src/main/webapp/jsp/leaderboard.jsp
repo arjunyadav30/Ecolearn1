@@ -30,8 +30,7 @@
                 PreparedStatement userStmt = null;
                 ResultSet userRs = null;
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    userCon = DriverManager.getConnection("jdbc:mysql://localhost/ecolearn", "root", "1234");
+                    userCon = com.mycompany.sih3.util.DBUtil.getConnection();
                     userStmt = userCon.prepareStatement("SELECT name FROM schools WHERE id = ?");
                     userStmt.setInt(1, currentUserSchoolId);
                     userRs = userStmt.executeQuery();
@@ -53,10 +52,7 @@
         }
     }
     
-    // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
-    String usernameDB = "root";
-    String passwordDB = "1234";
+    // Database connection is provided by DBUtil (configured in web.xml)
     
     // Fetch leaderboard data from database
     ArrayList<Map<String, Object>> leaderboardData = new ArrayList<Map<String, Object>>();
@@ -65,9 +61,8 @@
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        try {
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Check if school filter is active
         boolean isSchoolFilter = "school".equals(request.getParameter("filter"));

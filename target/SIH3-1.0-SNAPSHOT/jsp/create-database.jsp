@@ -6,29 +6,9 @@
     try {
         out.println("<h2>Database Setup</h2>");
         
-        // First, connect without specifying a database to create the ecolearn database
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/mysql"; // Connect to mysql database first
-        String username = "root";
-        String password = "1234";
-        con = DriverManager.getConnection(url, username, password);
-        
-        out.println("<p>Connected to MySQL server successfully.</p>");
-        
-        // Create the ecolearn database
-        stmt = con.createStatement();
-        stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS ecolearn");
-        
-        out.println("<p style='color: green;'>✓ Database 'ecolearn' created or already exists.</p>");
-        
-        // Now connect to the ecolearn database to create the table
-        con.close();
-        stmt.close();
-        
-        url = "jdbc:mysql://localhost:3306/ecolearn";
-        con = DriverManager.getConnection(url, username, password);
-        
-        out.println("<p>Connected to 'ecolearn' database.</p>");
+        // Connect to configured database (Supabase/Postgres). Creating a database is not supported on managed services.
+        con = com.mycompany.sih3.util.DBUtil.getConnection();
+        out.println("<p>Connected to database successfully.</p>");
         
         // Create question_bank table
         stmt = con.createStatement();

@@ -4,9 +4,7 @@ import java.sql.*;
 
 public class LeaderboardRankingUpdater {
     
-    private static final String DB_URL = "jdbc:mysql://localhost/ecolearn";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "1234";
+    
     
     /**
      * Updates both global and school rankings for all users in the database
@@ -17,8 +15,7 @@ public class LeaderboardRankingUpdater {
         int[] results = new int[2]; // [globalUpdated, schoolUpdated]
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
             
             // Update global rankings
             results[0] = updateGlobalRankings(con);

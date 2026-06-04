@@ -30,16 +30,15 @@
     }
     
     // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
+    // Use centralized DB connection
     String usernameDB = "root";
     String passwordDB = "1234";
     
     Connection con = null;
     PreparedStatement stmt = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        try {
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Insert activity log for challenge completion
         String insertSQL = "INSERT INTO activity_log (user_id, activity_type, title, description, points_earned) VALUES (?, ?, ?, ?, ?)";

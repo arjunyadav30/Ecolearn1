@@ -21,8 +21,7 @@
         
         // Fetch user statistics including streak
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ecolearn", "root", "1234");
+            Connection con = com.mycompany.sih3.util.DBUtil.getConnection();
             String sql = "SELECT current_streak FROM user_statistics WHERE user_id = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, userId);

@@ -38,10 +38,7 @@
         }
     }
     
-    // Database connection details
-    String url = "jdbc:mysql://localhost/ecolearn";
-    String usernameDB = "root";
-    String passwordDB = "1234";
+    // Database connection is provided by DBUtil (configured in web.xml)
     
     // Fetch school leaderboard data from database
     ArrayList<Map<String, Object>> schoolLeaderboardData = new ArrayList<Map<String, Object>>();
@@ -53,9 +50,8 @@
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection(url, usernameDB, passwordDB);
+        try {
+            con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Fetch user's school and global rank and statistics
         if (userId != null) {

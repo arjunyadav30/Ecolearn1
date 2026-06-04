@@ -14,14 +14,12 @@ public class UserRepository {
     }
     
     private Connection getConnection() {
-        Connection con = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecolearn?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "1234");
+            return com.mycompany.sih3.util.DBUtil.getConnection();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error getting DB connection: " + e.getMessage());
+            return null;
         }
-        return con;
     }
     
     public void save(User user) {

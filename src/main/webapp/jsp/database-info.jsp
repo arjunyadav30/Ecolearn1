@@ -8,9 +8,8 @@
     Statement stmt = null;
     ResultSet rs = null;
     
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecolearn?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "1234");
+        try {
+            conn = com.mycompany.sih3.util.DBUtil.getConnection();
         
         out.println("<h2>Database Schema Information:</h2>");
         

@@ -5,12 +5,8 @@
     Statement stmt = null;
     
     try {
-        // Database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/ecolearn";
-        String username = "root";
-        String password = "1234";
-        con = DriverManager.getConnection(url, username, password);
+        // Database connection (centralized)
+        con = com.mycompany.sih3.util.DBUtil.getConnection();
         
         // Check if video_url column already exists
         java.sql.DatabaseMetaData metaData = con.getMetaData();

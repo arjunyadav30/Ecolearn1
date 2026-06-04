@@ -8,9 +8,7 @@ import java.util.zip.GZIPOutputStream;
 
 public class BackupService {
     
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/ecolearn?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "1234";
+    // BackupService will use the configured DB connection (may need Postgres-specific adjustments)
     
     public BackupService() {
         // Default constructor
@@ -61,7 +59,7 @@ public class BackupService {
      * @return true if export was successful, false otherwise
      */
     private boolean exportDatabase(String filePath) {
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        try (Connection connection = com.mycompany.sih3.util.DBUtil.getConnection();
              PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             
             // Write header information
@@ -163,8 +161,8 @@ public class BackupService {
      * @return true if import was successful, false otherwise
      */
     private boolean importDatabase(String filePath) {
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+           try (Connection connection = com.mycompany.sih3.util.DBUtil.getConnection();
+               BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             
             StringBuilder statement = new StringBuilder();
             String line;
