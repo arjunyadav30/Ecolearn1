@@ -49,4 +49,9 @@
     <listener>
         <listener-class>com.mycompany.sih3.util.DBConfigListener</listener-class>
     </listener>
+
+    <!-- Database setup listener: runs SQL scripts after DB config is set -->
+    <listener>
+        <listener-class>com.mycompany.sih3.util.DatabaseSetupListener</listener-class>
+    </listener>
 </web-app>
