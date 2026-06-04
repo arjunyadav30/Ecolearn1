@@ -30,6 +30,11 @@ public class UserRepository {
         
         try {
             con = getConnection();
+            if (con == null) {
+                System.out.println("Failed to establish database connection");
+                return;
+            }
+            
             String sql = "INSERT INTO users (full_name, username, email, password, user_type, school_id, age, class_grade, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE full_name=?, username=?, email=?, password=?, user_type=?, school_id=?, age=?, class_grade=?, avatar=?";
             
             stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -54,24 +59,27 @@ public class UserRepository {
             stmt.setString(17, user.getClassGrade());
             stmt.setString(18, user.getAvatar());
             
-            stmt.executeUpdate();
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
             
             // Get generated ID for new records
             if (user.getId() == null) {
                 ResultSet rs = stmt.getGeneratedKeys();
                 if (rs.next()) {
                     user.setId(rs.getInt(1));
+                    System.out.println("Generated user ID: " + user.getId());
                 }
                 rs.close();
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("SQL Error in save method: " + e.getMessage());
+            e.printStackTrace();
         } finally {
             try {
                 if (stmt != null) stmt.close();
                 if (con != null) con.close();
             } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Error closing resources: " + e.getMessage());
             }
         }
     }
@@ -292,7 +300,19 @@ public class UserRepository {
         user.setUsername(rs.getString("username"));
         user.setEmail(rs.getString("email"));
         user.setPassword(rs.getString("password"));
-        user.setUserType(UserType.valueOf(rs.getString("user_type")));
+        String userTypeStr = rs.getString("user_type");
+        if (userTypeStr != null && !userTypeStr.isEmpty()) {
+            try {
+                user.setUserType(UserType.valueOf(userTypeStr));
+            } catch (IllegalArgumentException e) {
+                // Default to Student if invalid user type
+                user.setUserType(UserType.Student);
+                System.out.println("Invalid user type found in database: " + userTypeStr);
+            }
+        } else {
+            // Default to Student if user type is null or empty
+            user.setUserType(UserType.Student);
+        }
         user.setSchoolId(rs.getObject("school_id", Integer.class));
         user.setAge(rs.getObject("age", Integer.class));
         user.setClassGrade(rs.getString("class_grade"));

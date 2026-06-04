@@ -1,0 +1,63 @@
+# Ignore Maven build output
+target/
+**/target/
+
+# Ignore IntelliJ files
+.idea/
+*.iml
+*.iws
+out/
+
+# Ignore NetBeans private and build files
+nbproject/private/
+nbbuild/
+nbdist/
+build/
+dist/
+
+# Ignore Eclipse files
+.project
+.classpath
+.settings/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore user uploads, generated assets, and backups
+src/main/webapp/uploads/
+backups/
+
+# Ignore compiled classes and archives
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node/npm
+node_modules/
+
+# Coverage and reports
+coverage/
+jacoco.exec
+
+# Generated sources
+generated-sources/
+
+# Local Maven repository (uncomment if you keep a local copy in the repo)
+# .m2/
+
+# Database files
+*.db
+*.sqlite

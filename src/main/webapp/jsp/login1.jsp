@@ -38,8 +38,7 @@
     } else if ("teacher".equalsIgnoreCase(role)) {
         expectedUserType = "Teacher";
     } else if ("admin".equalsIgnoreCase(role)) {
-        // For now, we'll treat admin as teacher for simplicity
-        expectedUserType = "Teacher";
+        expectedUserType = "Admin";
     } else {
         request.setAttribute("errorMessage", "Invalid role selected.");
         request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -95,6 +94,9 @@
     } else if ("Teacher".equals(user.getUserType().toString())) {
         // Redirect to teacher dashboard in the correct directory
         response.sendRedirect("../Teacher/teacherdashboard.jsp");
+    } else if ("Admin".equals(user.getUserType().toString())) {
+        // Redirect to admin dashboard
+        response.sendRedirect("admin-dashboard.jsp");
     } else {
         // Default redirect
         response.sendRedirect("dashboard.jsp");
