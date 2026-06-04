@@ -1,5 +1,5 @@
 # Multi-stage Dockerfile: build WAR with Maven, run on Tomcat
-FROM maven:3.8.8-jdk-8 AS build
+FROM maven:3.6.3-jdk-8 AS build
 WORKDIR /build
 
 # Copy only what is needed for Maven to download dependencies first
