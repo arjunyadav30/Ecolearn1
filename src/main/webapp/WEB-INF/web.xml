@@ -42,7 +42,7 @@
     
     <context-param>
         <param-name>dbPassword</param-name>
-        <param-value>gBw35Qyvx$+#xXa</param-value>
+        <param-value>jGhANKHfwRKax3co</param-value>
     </context-param>
 
     <!-- DB config listener to initialize DBUtil -->
